@@ -13,8 +13,8 @@ public class Rover {
         this.position = position;
         this.orientation = new RingBuffer<>();
         this.orientation.add(Orientation.NORTH);
-        this.orientation.add(Orientation.SOUTH);
         this.orientation.add(Orientation.EAST);
+        this.orientation.add(Orientation.SOUTH);
         this.orientation.add(Orientation.WEST);
     }
 
