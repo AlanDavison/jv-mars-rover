@@ -11,4 +11,8 @@ public enum Orientation {
     Orientation(Position direction) {
         this.forwardDirection = direction;
     }
+
+    public Position getForwardDirection() {
+        return this.forwardDirection;
+    }
 }
