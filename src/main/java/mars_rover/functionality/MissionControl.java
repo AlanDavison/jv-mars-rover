@@ -1,12 +1,22 @@
 package mars_rover.functionality;
 
 import mars_rover.models.Instruction;
+import mars_rover.models.Plateau;
 import mars_rover.models.Position;
 
 import java.util.ArrayList;
 
 public class MissionControl {
     private ArrayList<Rover> rovers = new ArrayList<>();
+    private Plateau plateau;
+
+    public MissionControl(Plateau plateau) {
+        this.plateau = plateau;
+    }
+
+    public void addRover(Rover rover) {
+        this.rovers.add(rover);
+    }
 
     private boolean instructRover(Rover rover, Instruction instruction) {
 
@@ -16,6 +26,28 @@ public class MissionControl {
     private boolean isPositionValid(Rover rover, Position position) {
 
         return false;
+    }
+
+    public boolean isPositionFree(Position desiredPosition) {
+        if (desiredPosition.getX() > this.plateau.getWidth() || desiredPosition.getY() > this.plateau.getHeight())
+            return false;
+
+        ArrayList<Position> roverPositions = new ArrayList<>();
+
+        for (Rover rover: this.rovers) {
+            roverPositions.add(rover.getPosition());
+        }
+
+        for (int i = 0; i < this.plateau.getWidth(); i++) {
+            for (int j = 0; j < this.plateau.getHeight(); j++) {
+                for (Position position: roverPositions) {
+                    if (position.getX() == desiredPosition.getX() && position.getY() == desiredPosition.getY())
+                        return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void receiveInstruction(Rover rover, Instruction instruction) {
