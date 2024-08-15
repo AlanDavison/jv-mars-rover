@@ -59,8 +59,8 @@ class InputParserTest {
     }
 
     @Test
-    @DisplayName("Test parsing nonsense input.")
-    void testParsingInvalidInput() {
+    @DisplayName("Test parsing nonsense movement input.")
+    void testParsingInvalidMovementInput() {
         String movementInput = "FJGJGF)@86856";
 
         assertTrue(InputParser.parseInstructions(movementInput).isEmpty());
