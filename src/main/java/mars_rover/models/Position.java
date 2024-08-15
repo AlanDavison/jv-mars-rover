@@ -1,9 +1,9 @@
 package mars_rover.models;
 
-public class Vector2 {
+public class Position {
     private int x, y;
 
-    public Vector2(int x, int y) {
+    public Position(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -24,16 +24,21 @@ public class Vector2 {
         this.y = y;
     }
 
+    public void adjustBy(Position position) {
+        this.x += position.getX();
+        this.y += position.getY();
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null)
             return false;
-        if (!(obj instanceof Vector2))
+        if (!(obj instanceof Position))
             return false;
         if (obj == this)
             return true;
 
-        return ((Vector2) obj).getX() == this.getX() &&
-                ((Vector2) obj).getY() == this.getY();
+        return ((Position) obj).getX() == this.getX() &&
+                ((Position) obj).getY() == this.getY();
     }
 }

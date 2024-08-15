@@ -23,10 +23,10 @@ class OrientationTest {
     @Test
     @DisplayName("Test the associated movement direction with each enum value.")
     public void testMovementDirections() {
-        Vector2 expectedNorthMovement = new Vector2(0, 1);
-        Vector2 expectedEastMovement = new Vector2(1, 0);
-        Vector2 expectedSouthMovement = new Vector2(0, -1);
-        Vector2 expectedWestMovement = new Vector2(-1, 0);
+        Position expectedNorthMovement = new Position(0, 1);
+        Position expectedEastMovement = new Position(1, 0);
+        Position expectedSouthMovement = new Position(0, -1);
+        Position expectedWestMovement = new Position(-1, 0);
 
         assertNotEquals(expectedWestMovement, expectedNorthMovement);
         assertNotEquals(expectedEastMovement, expectedNorthMovement);
