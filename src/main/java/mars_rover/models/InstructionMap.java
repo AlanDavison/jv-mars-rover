@@ -12,9 +12,10 @@ public class InstructionMap {
 
     public static Optional<Instruction> getInstruction(Character c) {
         Optional<Instruction> instruction = Optional.empty();
+        Character searchCharacter = Character.toUpperCase(c);
 
-        if (map.containsKey(c)) {
-            instruction = Optional.of(map.get(c));
+        if (map.containsKey(searchCharacter)) {
+            instruction = Optional.of(map.get(searchCharacter));
         }
 
         return instruction;
