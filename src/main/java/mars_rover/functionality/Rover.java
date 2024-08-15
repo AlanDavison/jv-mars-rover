@@ -27,6 +27,15 @@ public class Rover {
     }
 
     public void receiveInstruction(Instruction instruction) {
+        if (instruction == Instruction.TurnLeft || instruction == Instruction.TurnRight) {
+            switch (instruction) {
+                case TurnLeft -> this.orientation.shiftDown();
+                case TurnRight ->  this.orientation.shiftUp();
+            }
 
+            return;
+        }
+
+        this.position.adjustBy(this.orientation.getCurrentElement().getForwardDirection());
     }
 }
