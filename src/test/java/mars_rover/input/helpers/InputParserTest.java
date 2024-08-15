@@ -23,7 +23,7 @@ class InputParserTest {
         }};
         String movementInput = "LMMRRM";
 
-        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput));
+        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput).get());
     }
 
     @Test
@@ -39,7 +39,7 @@ class InputParserTest {
         }};
         String movementInput = "L MM R   R  M";
 
-        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput));
+        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput).get());
     }
 
     @Test
@@ -55,16 +55,15 @@ class InputParserTest {
         }};
         String movementInput = "L#8ggMM673nR56G6R50GM";
 
-        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput));
+        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput).get());
     }
 
     @Test
     @DisplayName("Test parsing nonsense input.")
     void testParsingInvalidInput() {
-        LinkedList<Instruction> expectedInstructions = new LinkedList<>();
         String movementInput = "FJGJGF)@86856";
 
-        assertEquals(expectedInstructions, InputParser.parseInstructions(movementInput));
+        assertTrue(InputParser.parseInstructions(movementInput).isEmpty());
     }
 
 }
