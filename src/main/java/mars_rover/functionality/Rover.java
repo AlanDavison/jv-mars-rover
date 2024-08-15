@@ -8,6 +8,11 @@ public class Rover {
     private Position position;
     private Orientation orientation;
 
+    public Rover(Position position) {
+        this.position = position;
+        this.orientation = Orientation.NORTH;
+    }
+
     public Position getPosition() {
         return this.position;
     }
