@@ -1,6 +1,7 @@
 package mars_rover.core.functionality;
 
 import mars_rover.core.models.MovementInstruction;
+import mars_rover.core.models.Orientation;
 import mars_rover.core.models.Plateau;
 import mars_rover.core.models.Position;
 
@@ -20,6 +21,7 @@ public class MissionControl {
         if (this.isPositionFree(rover.getPosition())) {
             if (this.rovers.add(rover)) {
                 this.currentRoverIndex = this.rovers.indexOf(rover);
+                return true;
             }
         }
 
@@ -34,18 +36,39 @@ public class MissionControl {
         return Optional.of(rover);
     }
 
+    public void printRoverDetail(Rover rover) {
+        System.out.println("Rover at X:" + rover.getPosition().getX() + ", Y:" + rover.getPosition().getY() + " facing " + rover.getOrientation());
+    }
+
     public void selectRover(Position position) {
 
     }
 
     private boolean instructRover(Rover rover, MovementInstruction movementInstruction) {
+        if (rover == null)
+            return false;
+
+        switch (movementInstruction) {
+            case TurnLeft -> {
+                rover.turnLeft();
+                return true;
+            }
+            case TurnRight -> {
+                rover.turnRight();
+                return true;
+            }
+        }
 
         return false;
     }
 
     private boolean isPositionValid(Rover rover, Position position) {
+        if (position.getX() < 0 || position.getY() < 0)
+            return false;
+        if (!isPositionFree(position))
+            return false;
 
-        return false;
+        return true;
     }
 
     public boolean isPositionFree(Position desiredPosition) {
@@ -74,9 +97,12 @@ public class MissionControl {
 
     public void receiveInstruction(Rover rover, MovementInstruction movementInstruction) {
         if (movementInstruction == movementInstruction.MoveForward) {
-            if (this.isPositionValid(rover, rover.getPosition().adjustBy(rover.getOrientation().getForwardDirection()))) {
+            Orientation orientation = rover.getOrientation();
+            if (this.isPositionValid(rover, rover.getPosition().adjustBy(orientation.getForwardDirection()))) {
                 this.instructRover(rover, movementInstruction);
             }
+            else
+                return;
         } else {
             this.instructRover(rover, movementInstruction);
         }

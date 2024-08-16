@@ -13,10 +13,10 @@ class MissionControlTest {
     @DisplayName("Test Position validity checking with Rovers placed and desired co-ordinate is within plateau bounds.")
     void testPositionValidityWithRoversAndWithinPlateauBounds() {
         MissionControl control = new MissionControl(new Plateau(10, 10));
-        Rover roverOne = new Rover(new Position(3, 5));
-        Rover roverTwo = new Rover(new Position(0, 0));
-        Rover roverThree = new Rover(new Position(0, 10));
-        Rover roverFour = new Rover(new Position(10, 0));
+        Rover roverOne = new Rover(new Position(3, 5), 0);
+        Rover roverTwo = new Rover(new Position(0, 0), 1);
+        Rover roverThree = new Rover(new Position(0, 10), 2);
+        Rover roverFour = new Rover(new Position(10, 0), 3);
         control.addRover(roverOne);
         control.addRover(roverTwo);
         control.addRover(roverThree);
@@ -35,10 +35,10 @@ class MissionControlTest {
     @DisplayName("Test Position validity checking with Rovers placed and desired co-ordinate is outside of plateau bounds.")
     void testPositionValidityWithRoversAndQueriedTileOutsidePlateauBounds() {
         MissionControl control = new MissionControl(new Plateau(10, 10));
-        Rover roverOne = new Rover(new Position(3, 5));
-        Rover roverTwo = new Rover(new Position(0, 0));
-        Rover roverThree = new Rover(new Position(0, 10));
-        Rover roverFour = new Rover(new Position(10, 0));
+        Rover roverOne = new Rover(new Position(3, 5), 0);
+        Rover roverTwo = new Rover(new Position(0, 0), 1);
+        Rover roverThree = new Rover(new Position(0, 10), 2);
+        Rover roverFour = new Rover(new Position(10, 0), 3);
         control.addRover(roverOne);
         control.addRover(roverTwo);
         control.addRover(roverThree);
@@ -54,10 +54,10 @@ class MissionControlTest {
     @DisplayName("Test adding Rovers outisde of Plateau bounds.")
     void testAddingRoversOutsideOfPlateauBounds() {
         MissionControl control = new MissionControl(new Plateau(10, 10));
-        Rover roverOne = new Rover(new Position(Integer.MIN_VALUE, Integer.MAX_VALUE));
-        Rover roverTwo = new Rover(new Position(11, 11));
-        Rover roverThree = new Rover(new Position(0, 11));
-        Rover roverFour = new Rover(new Position(11, 0));
+        Rover roverOne = new Rover(new Position(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
+        Rover roverTwo = new Rover(new Position(11, 11), 1);
+        Rover roverThree = new Rover(new Position(0, 11), 2);
+        Rover roverFour = new Rover(new Position(11, 0), 3);
 
         assertFalse(control.addRover(roverOne));
         assertFalse(control.addRover(roverTwo));

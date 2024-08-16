@@ -25,10 +25,9 @@ public class Position {
     }
 
     public Position adjustBy(Position position) {
-        this.x += position.getX();
-        this.y += position.getY();
+        Position newPosition = new Position(this.x + position.getX(), this.y + position.getY());
 
-        return this;
+        return newPosition;
     }
 
     @Override

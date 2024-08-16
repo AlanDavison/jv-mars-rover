@@ -18,10 +18,10 @@ class RingBufferTest {
 
         assertEquals(Orientation.NORTH, buffer.getCurrentElement());
 
-        buffer.shiftDown();
-        assertEquals(Orientation.WEST, buffer.getCurrentElement());
+        buffer.shiftUp();
+        assertEquals(Orientation.EAST, buffer.getCurrentElement());
 
-        buffer.shiftDown();
+        buffer.shiftUp();
         assertEquals(Orientation.SOUTH, buffer.getCurrentElement());
 
         buffer.shiftUp();
@@ -32,6 +32,12 @@ class RingBufferTest {
 
         buffer.shiftUp();
         assertEquals(Orientation.EAST, buffer.getCurrentElement());
+
+        buffer.shiftDown();
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+
+        buffer.shiftDown();
+        assertEquals(Orientation.WEST, buffer.getCurrentElement());
     }
 
     @Test

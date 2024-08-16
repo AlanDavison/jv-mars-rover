@@ -59,16 +59,16 @@ class PositionTest {
     public void testPositionAdditionAndSubtraction() {
         Position position = new Position(5, 5);
 
-        position.adjustBy(new Position(1, 0));
+        position = position.adjustBy(new Position(1, 0));
         assertEquals(new Position(6, 5), position);
 
-        position.adjustBy(new Position(0, 1));
+        position = position.adjustBy(new Position(0, 1));
         assertEquals(new Position(6, 6), position);
 
-        position.adjustBy(new Position(-1, 0));
+        position = position.adjustBy(new Position(-1, 0));
         assertEquals(new Position(5, 6), position);
 
-        position.adjustBy(new Position(0, -1));
+        position = position.adjustBy(new Position(0, -1));
         assertEquals(new Position(5, 5), position);
     }
 }

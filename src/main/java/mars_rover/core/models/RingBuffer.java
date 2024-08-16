@@ -34,4 +34,11 @@ public class RingBuffer<E> {
 
         return this.elements.get(currentIndex);
     }
+
+    public void setCurrentElement(int index) {
+        if (this.elements.size() < index - 1)
+            return;
+
+        this.currentIndex = index;
+    }
 }

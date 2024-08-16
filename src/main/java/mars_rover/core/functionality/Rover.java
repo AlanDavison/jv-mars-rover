@@ -8,14 +8,16 @@ import mars_rover.core.models.RingBuffer;
 public class Rover {
     private Position position;
     private RingBuffer<Orientation> orientation;
+    private int currentOrientationIndex = 0;
 
-    public Rover(Position position) {
+    public Rover(Position position, int orientation) {
         this.position = position;
         this.orientation = new RingBuffer<>();
         this.orientation.add(Orientation.NORTH);
         this.orientation.add(Orientation.EAST);
         this.orientation.add(Orientation.SOUTH);
         this.orientation.add(Orientation.WEST);
+        this.orientation.setCurrentElement(orientation);
     }
 
     public Position getPosition() {
@@ -24,6 +26,14 @@ public class Rover {
 
     public Orientation getOrientation() {
         return this.orientation.getCurrentElement();
+    }
+
+    public void turnLeft() {
+        this.orientation.shiftDown();
+    }
+
+    public void turnRight() {
+        this.orientation.shiftUp();
     }
 
     public void receiveInstruction(MovementInstruction movementInstruction) {
@@ -36,6 +46,6 @@ public class Rover {
             return;
         }
 
-        this.position.adjustBy(this.orientation.getCurrentElement().getForwardDirection());
+        this.position = this.position.adjustBy(this.orientation.getCurrentElement().getForwardDirection());
     }
 }

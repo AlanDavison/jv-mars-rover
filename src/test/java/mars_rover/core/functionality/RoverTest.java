@@ -13,7 +13,7 @@ class RoverTest {
     @Test
     @DisplayName("Test Rover rotation instructions.")
     void testReceiveRotationInstructions() {
-        Rover rover = new Rover(new Position(4, 6));
+        Rover rover = new Rover(new Position(4, 6), 0);
 
         rover.receiveInstruction(MovementInstruction.TurnLeft);
         assertEquals(Orientation.WEST, rover.getOrientation());
@@ -28,7 +28,7 @@ class RoverTest {
     @Test
     @DisplayName("Test giving a Rover all types of instructions and check if it obeys correctly.")
     void testReceiveMixedInstruction() {
-        Rover rover = new Rover(new Position(4, 6));
+        Rover rover = new Rover(new Position(4, 6), 0);
 
         rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 7), rover.getPosition());
@@ -58,7 +58,7 @@ class RoverTest {
     @Test
     @DisplayName("Test simply moving a Rover straight without turning.")
     void testMovingStraight() {
-        Rover rover = new Rover(new Position(4, 6));
+        Rover rover = new Rover(new Position(4, 6), 0);
 
         rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 7), rover.getPosition());

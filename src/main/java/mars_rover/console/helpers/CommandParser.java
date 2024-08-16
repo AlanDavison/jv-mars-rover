@@ -87,9 +87,6 @@ public class CommandParser {
     }
 
     public static Optional<Position> getPositionFromSpawnCommand(String command) {
-        if (!isValidCommand(command))
-            return Optional.empty();
-
         Optional<Position> position;
         String[] splitCommand = command.split(" ");
 
@@ -100,8 +97,8 @@ public class CommandParser {
         Integer yCoord = 0;
 
         try {
-            xCoord = Integer.parseInt(splitCommand[1]);
-            yCoord = Integer.parseInt(splitCommand[2]);
+            xCoord = Integer.parseInt(splitCommand[0]);
+            yCoord = Integer.parseInt(splitCommand[1]);
         } catch (NumberFormatException nfe) {
             return Optional.empty();
         }
