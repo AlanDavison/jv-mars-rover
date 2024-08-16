@@ -1,4 +1,4 @@
-package mars_rover.models;
+package mars_rover.core.models;
 
 public class Plateau {
     private final int width, height;

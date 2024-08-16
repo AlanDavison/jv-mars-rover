@@ -1,8 +1,8 @@
-package mars_rover.functionality;
+package mars_rover.core.functionality;
 
-import mars_rover.models.MovementInstruction;
-import mars_rover.models.Plateau;
-import mars_rover.models.Position;
+import mars_rover.core.models.MovementInstruction;
+import mars_rover.core.models.Plateau;
+import mars_rover.core.models.Position;
 
 import java.util.ArrayList;
 

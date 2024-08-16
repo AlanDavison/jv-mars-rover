@@ -1,7 +1,7 @@
-package mars_rover.input.helpers;
+package mars_rover.core.helpers;
 
-import mars_rover.models.MovementInstruction;
-import mars_rover.models.InstructionMap;
+import mars_rover.core.models.MovementInstruction;
+import mars_rover.core.models.InstructionMap;
 
 import java.util.LinkedList;
 import java.util.Optional;

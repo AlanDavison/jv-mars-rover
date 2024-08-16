@@ -1,6 +1,6 @@
-package mars_rover.input.helpers;
+package mars_rover.core.helpers;
 
-import mars_rover.models.MovementInstruction;
+import mars_rover.core.models.MovementInstruction;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

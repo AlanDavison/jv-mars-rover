@@ -1,9 +1,9 @@
-package mars_rover.functionality;
+package mars_rover.core.functionality;
 
-import mars_rover.models.MovementInstruction;
-import mars_rover.models.Orientation;
-import mars_rover.models.Position;
-import mars_rover.models.RingBuffer;
+import mars_rover.core.models.MovementInstruction;
+import mars_rover.core.models.Orientation;
+import mars_rover.core.models.Position;
+import mars_rover.core.models.RingBuffer;
 
 public class Rover {
     private Position position;

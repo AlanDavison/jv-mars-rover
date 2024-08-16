@@ -1,6 +1,6 @@
-package mars_rover.models;
+package mars_rover.core.models;
 
-import mars_rover.functionality.MissionControl;
+import mars_rover.core.functionality.MissionControl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

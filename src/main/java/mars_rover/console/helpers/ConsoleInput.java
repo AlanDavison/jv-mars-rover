@@ -1,4 +1,4 @@
-package mars_rover.input.helpers;
+package mars_rover.console.helpers;
 
 import java.util.Scanner;
 import java.util.function.Predicate;

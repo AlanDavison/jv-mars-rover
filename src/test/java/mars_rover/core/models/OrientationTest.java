@@ -1,4 +1,4 @@
-package mars_rover.models;
+package mars_rover.core.models;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
