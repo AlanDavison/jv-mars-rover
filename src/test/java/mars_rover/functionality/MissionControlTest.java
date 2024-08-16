@@ -50,4 +50,19 @@ class MissionControlTest {
         assertFalse(control.isPositionFree(new Position(Integer.MAX_VALUE, Integer.MIN_VALUE)));
     }
 
+    @Test
+    @DisplayName("Test adding Rovers outisde of Plateau bounds.")
+    void testAddingRoversOutsideOfPlateauBounds() {
+        MissionControl control = new MissionControl(new Plateau(10, 10));
+        Rover roverOne = new Rover(new Position(3, 5));
+        Rover roverTwo = new Rover(new Position(0, 0));
+        Rover roverThree = new Rover(new Position(0, 10));
+        Rover roverFour = new Rover(new Position(10, 0));
+
+        assertFalse(control.addRover(roverOne));
+        assertFalse(control.addRover(roverTwo));
+        assertFalse(control.addRover(roverThree));
+        assertFalse(control.addRover(roverFour));
+    }
+
 }
