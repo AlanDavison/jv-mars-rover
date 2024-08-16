@@ -14,8 +14,11 @@ public class MissionControl {
         this.plateau = plateau;
     }
 
-    public void addRover(Rover rover) {
-        this.rovers.add(rover);
+    public boolean addRover(Rover rover) {
+        if (this.isPositionFree(rover.getPosition()))
+            return this.rovers.add(rover);
+
+        return false;
     }
 
     private boolean instructRover(Rover rover, Instruction instruction) {
