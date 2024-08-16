@@ -1,6 +1,6 @@
 package mars_rover.functionality;
 
-import mars_rover.models.Instruction;
+import mars_rover.models.MovementInstruction;
 import mars_rover.models.Plateau;
 import mars_rover.models.Position;
 
@@ -21,7 +21,7 @@ public class MissionControl {
         return false;
     }
 
-    private boolean instructRover(Rover rover, Instruction instruction) {
+    private boolean instructRover(Rover rover, MovementInstruction movementInstruction) {
 
         return false;
     }
@@ -53,13 +53,13 @@ public class MissionControl {
         return true;
     }
 
-    public void receiveInstruction(Rover rover, Instruction instruction) {
-        if (instruction == instruction.MoveForward) {
+    public void receiveInstruction(Rover rover, MovementInstruction movementInstruction) {
+        if (movementInstruction == movementInstruction.MoveForward) {
             if (this.isPositionValid(rover, rover.getPosition().adjustBy(rover.getOrientation().getForwardDirection()))) {
-                this.instructRover(rover, instruction);
+                this.instructRover(rover, movementInstruction);
             }
         } else {
-            this.instructRover(rover, instruction);
+            this.instructRover(rover, movementInstruction);
         }
     }
 }

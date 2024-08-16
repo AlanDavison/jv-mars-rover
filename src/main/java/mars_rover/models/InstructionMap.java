@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Optional;
 
 public class InstructionMap {
-    private static HashMap<Character, Instruction> map = new HashMap<>() {{
-        put('L', Instruction.TurnLeft);
-        put('R', Instruction.TurnRight);
-        put('M', Instruction.MoveForward);
+    private static HashMap<Character, MovementInstruction> map = new HashMap<>() {{
+        put('L', MovementInstruction.TurnLeft);
+        put('R', MovementInstruction.TurnRight);
+        put('M', MovementInstruction.MoveForward);
     }};
 
-    public static Optional<Instruction> getInstruction(Character c) {
-        Optional<Instruction> instruction = Optional.empty();
+    public static Optional<MovementInstruction> getInstruction(Character c) {
+        Optional<MovementInstruction> instruction = Optional.empty();
         Character searchCharacter = Character.toUpperCase(c);
 
         if (map.containsKey(searchCharacter)) {

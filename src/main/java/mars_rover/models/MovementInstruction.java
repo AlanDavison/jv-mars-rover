@@ -1,6 +1,6 @@
 package mars_rover.models;
 
-public enum Instruction {
+public enum MovementInstruction {
     TurnLeft,
     TurnRight,
     MoveForward,

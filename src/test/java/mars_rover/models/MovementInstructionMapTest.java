@@ -7,20 +7,20 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InstructionMapTest {
+class MovementInstructionMapTest {
 
     @Test
     @DisplayName("Test pulling correct Instruction from InstructionMap.")
     void testGettingCorrectInstructionFromMap() {
-        Optional<Instruction> expected = Optional.of(Instruction.TurnRight);
+        Optional<MovementInstruction> expected = Optional.of(MovementInstruction.TurnRight);
         Character input = 'R';
         assertEquals(expected, InstructionMap.getInstruction(input));
 
-        expected = Optional.of(Instruction.TurnLeft);
+        expected = Optional.of(MovementInstruction.TurnLeft);
         input = 'L';
         assertEquals(expected, InstructionMap.getInstruction(input));
 
-        expected = Optional.of(Instruction.MoveForward);
+        expected = Optional.of(MovementInstruction.MoveForward);
         input = 'M';
         assertEquals(expected, InstructionMap.getInstruction(input));
     }
@@ -28,15 +28,15 @@ class InstructionMapTest {
     @Test
     @DisplayName("Test pulling correct Instruction from InstructionMap with lowercase commands.")
     void testGettingCorrectInstructionFromMapWithLowercaseInput() {
-        Optional<Instruction> expected = Optional.of(Instruction.TurnRight);
+        Optional<MovementInstruction> expected = Optional.of(MovementInstruction.TurnRight);
         Character input = 'r';
         assertEquals(expected, InstructionMap.getInstruction(input));
 
-        expected = Optional.of(Instruction.TurnLeft);
+        expected = Optional.of(MovementInstruction.TurnLeft);
         input = 'l';
         assertEquals(expected, InstructionMap.getInstruction(input));
 
-        expected = Optional.of(Instruction.MoveForward);
+        expected = Optional.of(MovementInstruction.MoveForward);
         input = 'm';
         assertEquals(expected, InstructionMap.getInstruction(input));
     }
@@ -44,7 +44,7 @@ class InstructionMapTest {
     @Test
     @DisplayName("Test trying to pull Instruction from InstructionMap with invalid input.")
     void testInvalidInputToGetInstruction() {
-        Optional<Instruction> expected = Optional.empty();
+        Optional<MovementInstruction> expected = Optional.empty();
         Character input = 'H';
         assertEquals(expected, InstructionMap.getInstruction(input));
 

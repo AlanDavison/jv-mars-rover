@@ -1,6 +1,6 @@
 package mars_rover.input.helpers;
 
-import mars_rover.models.Instruction;
+import mars_rover.models.MovementInstruction;
 import mars_rover.models.InstructionMap;
 
 import java.util.LinkedList;
@@ -8,25 +8,25 @@ import java.util.Optional;
 
 public class InputParser {
 
-    public static Optional<LinkedList<Instruction>> parseInstructions(String input) {
-        Optional<LinkedList<Instruction>> finalInstructions = Optional.empty();
-        LinkedList<Instruction> instructions = new LinkedList<>();
+    public static Optional<LinkedList<MovementInstruction>> parseInstructions(String input) {
+        Optional<LinkedList<MovementInstruction>> finalInstructions = Optional.empty();
+        LinkedList<MovementInstruction> movementInstructions = new LinkedList<>();
         char[] inputCharacters = input.toCharArray();
 
         for (Character c: inputCharacters) {
-            Optional<Instruction> instruction = parseInstruction(c);
+            Optional<MovementInstruction> instruction = parseInstruction(c);
 
             if (instruction.isPresent())
-                instructions.add(instruction.get());
+                movementInstructions.add(instruction.get());
         }
 
-        if (!instructions.isEmpty())
-            finalInstructions = Optional.of(instructions);
+        if (!movementInstructions.isEmpty())
+            finalInstructions = Optional.of(movementInstructions);
 
         return finalInstructions;
     }
 
-    private static Optional<Instruction> parseInstruction(Character input) {
+    private static Optional<MovementInstruction> parseInstruction(Character input) {
         return InstructionMap.getInstruction(input);
     }
 }

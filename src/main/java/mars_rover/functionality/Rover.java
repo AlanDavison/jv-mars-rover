@@ -1,6 +1,6 @@
 package mars_rover.functionality;
 
-import mars_rover.models.Instruction;
+import mars_rover.models.MovementInstruction;
 import mars_rover.models.Orientation;
 import mars_rover.models.Position;
 import mars_rover.models.RingBuffer;
@@ -26,9 +26,9 @@ public class Rover {
         return this.orientation.getCurrentElement();
     }
 
-    public void receiveInstruction(Instruction instruction) {
-        if (instruction == Instruction.TurnLeft || instruction == Instruction.TurnRight) {
-            switch (instruction) {
+    public void receiveInstruction(MovementInstruction movementInstruction) {
+        if (movementInstruction == MovementInstruction.TurnLeft || movementInstruction == MovementInstruction.TurnRight) {
+            switch (movementInstruction) {
                 case TurnLeft -> this.orientation.shiftDown();
                 case TurnRight ->  this.orientation.shiftUp();
             }

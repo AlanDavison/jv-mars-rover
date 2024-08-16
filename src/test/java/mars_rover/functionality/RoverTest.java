@@ -1,12 +1,10 @@
 package mars_rover.functionality;
 
-import mars_rover.models.Instruction;
+import mars_rover.models.MovementInstruction;
 import mars_rover.models.Orientation;
 import mars_rover.models.Position;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,13 +15,13 @@ class RoverTest {
     void testReceiveRotationInstructions() {
         Rover rover = new Rover(new Position(4, 6));
 
-        rover.receiveInstruction(Instruction.TurnLeft);
+        rover.receiveInstruction(MovementInstruction.TurnLeft);
         assertEquals(Orientation.WEST, rover.getOrientation());
 
-        rover.receiveInstruction(Instruction.TurnRight);
+        rover.receiveInstruction(MovementInstruction.TurnRight);
         assertEquals(Orientation.NORTH, rover.getOrientation());
 
-        rover.receiveInstruction(Instruction.TurnRight);
+        rover.receiveInstruction(MovementInstruction.TurnRight);
         assertEquals(Orientation.EAST, rover.getOrientation());
     }
 
@@ -32,28 +30,28 @@ class RoverTest {
     void testReceiveMixedInstruction() {
         Rover rover = new Rover(new Position(4, 6));
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 7), rover.getPosition());
 
-        rover.receiveInstruction(Instruction.TurnLeft);
+        rover.receiveInstruction(MovementInstruction.TurnLeft);
         assertEquals(Orientation.WEST, rover.getOrientation());
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(3, 7), rover.getPosition());
 
-        rover.receiveInstruction(Instruction.TurnRight);
+        rover.receiveInstruction(MovementInstruction.TurnRight);
         assertEquals(Orientation.NORTH, rover.getOrientation());
 
-        rover.receiveInstruction(Instruction.TurnRight);
+        rover.receiveInstruction(MovementInstruction.TurnRight);
         assertEquals(Orientation.EAST, rover.getOrientation());
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 7), rover.getPosition());
 
-        rover.receiveInstruction(Instruction.TurnRight);
+        rover.receiveInstruction(MovementInstruction.TurnRight);
         assertEquals(Orientation.SOUTH, rover.getOrientation());
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 6), rover.getPosition());
     }
 
@@ -62,16 +60,16 @@ class RoverTest {
     void testMovingStraight() {
         Rover rover = new Rover(new Position(4, 6));
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 7), rover.getPosition());
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 8), rover.getPosition());
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 9), rover.getPosition());
 
-        rover.receiveInstruction(Instruction.MoveForward);
+        rover.receiveInstruction(MovementInstruction.MoveForward);
         assertEquals(new Position(4, 10), rover.getPosition());
     }
 }
