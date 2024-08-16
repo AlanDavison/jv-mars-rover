@@ -15,7 +15,7 @@ class PositionTest {
     private Position positionSix = new Position(42, 42);
 
     @Test
-    @DisplayName("Test Vector2 custom .equals override")
+    @DisplayName("Test Vector2 custom .equals override against non-null Position instances.")
     public void testPositionEqualsOverrideAgainstNonNullPosition() {
         assertEquals(positionOne, positionFour);
         assertEquals(positionTwo, positionFive);
@@ -25,7 +25,7 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("Test Vector2 custom .equals override")
+    @DisplayName("Test Vector2 custom .equals override against null Position instances.")
     public void testPositionEqualsOverrideAgainstNullPosition() {
         Position posOne = new Position(5, 6);
         Position posTwo = null;
@@ -35,7 +35,7 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("Test Vector2 custom .equals override")
+    @DisplayName("Test Vector2 custom .equals override against non-Position objects.")
     public void testPositionEqualsOverrideAgainstNonPositionObject() {
         Position posOne = new Position(5, 6);
         MissionControl missionControl = new MissionControl(new Plateau(5, 5));
@@ -45,7 +45,7 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("Test Vector2 custom .equals override")
+    @DisplayName("Test Vector2 custom .equals override against null non-Position objects.")
     public void testPositionEqualsOverrideAgainstNullNonPositionObject() {
         Position posOne = new Position(5, 6);
         MissionControl missionControl = null;
