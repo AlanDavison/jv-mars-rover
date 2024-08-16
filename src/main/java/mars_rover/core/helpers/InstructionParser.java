@@ -11,7 +11,7 @@ public class InstructionParser {
     public static Optional<LinkedList<MovementInstruction>> parseInstructions(String input) {
         Optional<LinkedList<MovementInstruction>> finalInstructions = Optional.empty();
         LinkedList<MovementInstruction> movementInstructions = new LinkedList<>();
-        char[] inputCharacters = input.toCharArray();
+        char[] inputCharacters = input.trim().toCharArray();
 
         for (Character c: inputCharacters) {
             Optional<MovementInstruction> instruction = parseInstruction(c);
