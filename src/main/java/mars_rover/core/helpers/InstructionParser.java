@@ -6,7 +6,7 @@ import mars_rover.core.models.InstructionMap;
 import java.util.LinkedList;
 import java.util.Optional;
 
-public class InputParser {
+public class InstructionParser {
 
     public static Optional<LinkedList<MovementInstruction>> parseInstructions(String input) {
         Optional<LinkedList<MovementInstruction>> finalInstructions = Optional.empty();

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InputParserTest {
+class InstructionParserTest {
 
     @Test
     @DisplayName("Test parsing valid string of movement inputs without spaces.")
@@ -23,7 +23,7 @@ class InputParserTest {
         }};
         String movementInput = "LMMRRM";
 
-        assertEquals(expectedMovementInstructions, InputParser.parseInstructions(movementInput).get());
+        assertEquals(expectedMovementInstructions, InstructionParser.parseInstructions(movementInput).get());
     }
 
     @Test
@@ -39,7 +39,7 @@ class InputParserTest {
         }};
         String movementInput = "L MM R   R  M";
 
-        assertEquals(expectedMovementInstructions, InputParser.parseInstructions(movementInput).get());
+        assertEquals(expectedMovementInstructions, InstructionParser.parseInstructions(movementInput).get());
     }
 
     @Test
@@ -55,7 +55,7 @@ class InputParserTest {
         }};
         String movementInput = "L#8ggMM673nR56G6R50GM";
 
-        assertEquals(expectedMovementInstructions, InputParser.parseInstructions(movementInput).get());
+        assertEquals(expectedMovementInstructions, InstructionParser.parseInstructions(movementInput).get());
     }
 
     @Test
@@ -63,7 +63,7 @@ class InputParserTest {
     void testParsingInvalidMovementInput() {
         String movementInput = "FJGJGF)@86856";
 
-        assertTrue(InputParser.parseInstructions(movementInput).isEmpty());
+        assertTrue(InstructionParser.parseInstructions(movementInput).isEmpty());
     }
 
 }
