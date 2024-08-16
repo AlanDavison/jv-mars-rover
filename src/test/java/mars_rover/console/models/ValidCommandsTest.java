@@ -6,23 +6,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ValidCommandsTest {
-    private ValidCommands commands = new ValidCommands();
 
     @Test
     @DisplayName("Test command validity with commands that exist.")
     void testValidCommandsMapWithRealCommands() {
-        assertTrue(commands.isValidCommand("spawn"));
-        assertTrue(commands.isValidCommand("move"));
-        assertTrue(commands.isValidCommand("quit"));
-        assertFalse(commands.isValidCommand("quitt"));
+        assertTrue(ValidCommands.isValidCommand("spawn"));
+        assertTrue(ValidCommands.isValidCommand("move"));
+        assertTrue(ValidCommands.isValidCommand("quit"));
+        assertFalse(ValidCommands.isValidCommand("quitt"));
     }
 
     @Test
     @DisplayName("Test command validity with commands that don't exist.")
     void testValidCommandsMapWithFakeCommands() {
-        assertFalse(commands.isValidCommand("quitt"));
-        assertFalse(commands.isValidCommand("g4567n[]"));
-        assertFalse(commands.isValidCommand("46247.;"));
+        assertFalse(ValidCommands.isValidCommand("quitt"));
+        assertFalse(ValidCommands.isValidCommand("g4567n[]"));
+        assertFalse(ValidCommands.isValidCommand("46247.;"));
     }
 
 }

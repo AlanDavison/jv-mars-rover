@@ -1,17 +1,22 @@
 package mars_rover.console.models;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class ValidCommands {
-    private ArrayList<String> commands = new ArrayList<>() {{
+    private static ArrayList<String> commands = new ArrayList<>() {{
         add("spawn");
         add("move");
         add("quit");
     }};
 
-    public boolean isValidCommand(String command) {
+    public static boolean isValidCommand(String command) {
         command = command.toLowerCase();
 
-        return this.commands.contains(command);
+        return commands.contains(command);
+    }
+
+    public static void forEach(Consumer<String> consumer) {
+        commands.forEach(consumer);
     }
 }
