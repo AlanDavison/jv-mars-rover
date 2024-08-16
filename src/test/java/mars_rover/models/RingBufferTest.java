@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class RingBufferTest {
 
     @Test
-    @DisplayName("Test RingBuffer functionality.")
-    void getCurrentElement() {
+    @DisplayName("Test RingBuffer functionality with elements added.")
+    void testRingBufferFunctionalityWithElementsAdded() {
         RingBuffer<Orientation> buffer = new RingBuffer<>();
         buffer.add(Orientation.NORTH);
         buffer.add(Orientation.EAST);
@@ -32,5 +32,52 @@ class RingBufferTest {
 
         buffer.shiftUp();
         assertEquals(Orientation.EAST, buffer.getCurrentElement());
+    }
+
+    @Test
+    @DisplayName("Test RingBuffer functionality with only one element.")
+    void testRingBufferFunctionalityWithOneElementOnly() {
+        RingBuffer<Orientation> buffer = new RingBuffer<>();
+        buffer.add(Orientation.NORTH);
+
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+
+        buffer.shiftDown();
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+
+        buffer.shiftDown();
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+
+        buffer.shiftUp();
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+
+        buffer.shiftUp();
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+
+        buffer.shiftUp();
+        assertEquals(Orientation.NORTH, buffer.getCurrentElement());
+    }
+
+    @Test
+    @DisplayName("Test RingBuffer functionality with zero elements.")
+    void testRingBufferFunctionalityWhenEmpty() {
+        RingBuffer<Orientation> buffer = new RingBuffer<>();
+
+        assertNull(buffer.getCurrentElement());
+
+        buffer.shiftDown();
+        assertNull(buffer.getCurrentElement());
+
+        buffer.shiftDown();
+        assertNull(buffer.getCurrentElement());
+
+        buffer.shiftUp();
+        assertNull(buffer.getCurrentElement());
+
+        buffer.shiftUp();
+        assertNull(buffer.getCurrentElement());
+
+        buffer.shiftUp();
+        assertNull(buffer.getCurrentElement());
     }
 }

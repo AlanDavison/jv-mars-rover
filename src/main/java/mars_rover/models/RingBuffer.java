@@ -29,6 +29,9 @@ public class RingBuffer<E> {
     }
 
     public E getCurrentElement() {
+        if (this.elements.isEmpty())
+            return null;
+
         return this.elements.get(currentIndex);
     }
 }
