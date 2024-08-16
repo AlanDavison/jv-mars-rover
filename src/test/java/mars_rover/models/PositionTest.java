@@ -15,7 +15,7 @@ class PositionTest {
 
     @Test
     @DisplayName("Test Vector2 custom .equals override")
-    public void testPositionEqualsOverride() {
+    public void testPositionEqualsOverrideAgainstNonNullPosition() {
         assertEquals(positionOne, positionFour);
         assertEquals(positionTwo, positionFive);
         assertEquals(positionThree, positionSix);
