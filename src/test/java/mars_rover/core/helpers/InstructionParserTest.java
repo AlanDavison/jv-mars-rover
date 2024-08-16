@@ -39,7 +39,7 @@ class InstructionParserTest {
         }};
         String movementInput = "L MM R   R  M";
 
-        assertEquals(expectedMovementInstructions, InstructionParser.parseInstructions(movementInput).get());
+        assertTrue(InstructionParser.parseInstructions(movementInput).isEmpty());
     }
 
     @Test
@@ -55,7 +55,7 @@ class InstructionParserTest {
         }};
         String movementInput = "L#8ggMM673nR56G6R50GM";
 
-        assertEquals(expectedMovementInstructions, InstructionParser.parseInstructions(movementInput).get());
+        assertTrue(InstructionParser.parseInstructions(movementInput).isEmpty());
     }
 
     @Test

@@ -18,6 +18,8 @@ public class InstructionParser {
 
             if (instruction.isPresent())
                 movementInstructions.add(instruction.get());
+            else
+                return Optional.empty();
         }
 
         if (!movementInstructions.isEmpty())
