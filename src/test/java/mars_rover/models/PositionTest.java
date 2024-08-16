@@ -1,5 +1,6 @@
 package mars_rover.models;
 
+import mars_rover.functionality.MissionControl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +32,16 @@ class PositionTest {
         
         assertNotEquals(posOne, posTwo);
         assertNotEquals(posTwo, posOne);
+    }
+
+    @Test
+    @DisplayName("Test Vector2 custom .equals override")
+    public void testPositionEqualsOverrideAgainstNonPositionObject() {
+        Position posOne = new Position(5, 6);
+        MissionControl missionControl = new MissionControl(new Plateau(5, 5));
+
+        assertNotEquals(posOne, missionControl);
+        assertNotEquals(missionControl, posOne);
     }
 
     @Test
