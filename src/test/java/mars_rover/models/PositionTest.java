@@ -24,6 +24,16 @@ class PositionTest {
     }
 
     @Test
+    @DisplayName("Test Vector2 custom .equals override")
+    public void testPositionEqualsOverrideAgainstNullPosition() {
+        Position posOne = new Position(5, 6);
+        Position posTwo = null;
+        
+        assertNotEquals(posOne, posTwo);
+        assertNotEquals(posTwo, posOne);
+    }
+
+    @Test
     @DisplayName("Test Position addition and subtraction logic.")
     public void testPositionAdditionAndSubtraction() {
         Position position = new Position(5, 5);
