@@ -5,20 +5,37 @@ import mars_rover.core.models.Plateau;
 import mars_rover.core.models.Position;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class MissionControl {
     private ArrayList<Rover> rovers = new ArrayList<>();
     private Plateau plateau;
+    private int currentRoverIndex = 0;
 
     public MissionControl(Plateau plateau) {
         this.plateau = plateau;
     }
 
     public boolean addRover(Rover rover) {
-        if (this.isPositionFree(rover.getPosition()))
-            return this.rovers.add(rover);
+        if (this.isPositionFree(rover.getPosition())) {
+            if (this.rovers.add(rover)) {
+                this.currentRoverIndex = this.rovers.indexOf(rover);
+            }
+        }
 
         return false;
+    }
+
+    public Optional<Rover> getCurrentRover() {
+        Rover rover = this.rovers.get(this.currentRoverIndex);
+        if (rover == null)
+            return Optional.empty();
+
+        return Optional.of(rover);
+    }
+
+    public void selectRover(Position position) {
+
     }
 
     private boolean instructRover(Rover rover, MovementInstruction movementInstruction) {
@@ -33,6 +50,8 @@ public class MissionControl {
 
     public boolean isPositionFree(Position desiredPosition) {
         if (desiredPosition.getX() > this.plateau.getWidth() || desiredPosition.getY() > this.plateau.getHeight())
+            return false;
+        if (desiredPosition.getX() < 0 || desiredPosition.getY() < 0)
             return false;
 
         ArrayList<Position> roverPositions = new ArrayList<>();
