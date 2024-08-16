@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class MissionControlTest {
 
     @Test
-    @DisplayName("Test Position validity checking.")
-    void testPositionValidity() {
+    @DisplayName("Test Position validity checking with Rovers placed and desired co-ordinate is within plateau bounds.")
+    void testPositionValidityWithRoversAndWithinPlateauBounds() {
         MissionControl control = new MissionControl(new Plateau(10, 10));
         Rover roverOne = new Rover(new Position(3, 5));
         Rover roverTwo = new Rover(new Position(0, 0));
