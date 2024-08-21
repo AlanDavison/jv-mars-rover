@@ -49,12 +49,8 @@ public class MissionControl {
             return false;
 
         switch (movementInstruction) {
-            case TurnLeft -> {
-                rover.turnLeft();
-                return true;
-            }
-            case TurnRight -> {
-                rover.turnRight();
+            case TurnLeft, TurnRight, MoveForward -> {
+                rover.receiveInstruction(movementInstruction);
                 return true;
             }
         }
@@ -98,11 +94,10 @@ public class MissionControl {
     public void receiveInstruction(Rover rover, MovementInstruction movementInstruction) {
         if (movementInstruction == movementInstruction.MoveForward) {
             Orientation orientation = rover.getOrientation();
+
             if (this.isPositionValid(rover, rover.getPosition().adjustBy(orientation.getForwardDirection()))) {
                 this.instructRover(rover, movementInstruction);
             }
-            else
-                return;
         } else {
             this.instructRover(rover, movementInstruction);
         }
