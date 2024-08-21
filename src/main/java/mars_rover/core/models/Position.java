@@ -30,6 +30,10 @@ public class Position {
         return newPosition;
     }
 
+    public String toString() {
+        return this.x + ", " + this.y;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null)
