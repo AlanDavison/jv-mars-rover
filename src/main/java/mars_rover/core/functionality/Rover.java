@@ -39,8 +39,8 @@ public class Rover {
     public void receiveInstruction(MovementInstruction movementInstruction) {
         if (movementInstruction == MovementInstruction.TurnLeft || movementInstruction == MovementInstruction.TurnRight) {
             switch (movementInstruction) {
-                case TurnLeft -> this.orientation.shiftDown();
-                case TurnRight ->  this.orientation.shiftUp();
+                case TurnLeft -> this.turnLeft();
+                case TurnRight ->  this.turnRight();
             }
 
             return;
