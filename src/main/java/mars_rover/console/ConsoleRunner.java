@@ -92,8 +92,9 @@ public class ConsoleRunner {
                 continue;
             }
 
+            System.out.println("Enter a move command: (consisting of L, R, and M)");
             String moveCommand = ConsoleInput.getConsoleInput(
-                    "Enter a move command: (consisting of L, R, and M)",
+                    "Command: ",
                     "That didn't look quite right. Try again!",
                     scanner,
                     s -> {
